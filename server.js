@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// original code from previous assignment...
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 //   useNewUrlParser: true,
 //   useFindAndModify: false
@@ -25,7 +26,7 @@ mongoose.connect(process.env.MONDODB_URI || 'mongodb+srv://shawnm74:RemakeMyself
     .then(() => console.log('connected to database: ${databaseName}'));
 
 // routes
-app.use(require("./routes/api.js"));
+app.use(require("./routes/api-routes.js"));
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
