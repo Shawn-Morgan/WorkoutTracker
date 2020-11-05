@@ -29,19 +29,19 @@ app.use(express.static("public"));
 //   useFindAndModify: false
 // });
 
-mongoose.connect(process.env.MONDODB_URI || 'mongodb+srv://shawnm74:RemakeMyself2020&@workouttracker.gcjb2.mongodb.net/WorkoutTracker?retryWrites=true&w=majority', 
+mongoose.connect(process.env.MONDODB_URI || 'mongodb+srv://shawnm74:RemakeMyself2020@workouttracker.gcjb2.mongodb.net/WorkoutTracker?retryWrites=true&w=majority', 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false
 }) 
-    .then(() => console.log('connected to database: ${databaseName}'));
+    .then(() => console.log('connected to database:' + (databaseName)));
 
 // routes
 app.use(require("./routes/api-routes.js"));
 //++
-app.use("/", require("./routes/html-routes.js"));
+app.use(require("./routes/html-routes.js"));
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
